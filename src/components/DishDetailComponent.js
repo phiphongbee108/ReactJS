@@ -10,10 +10,11 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
+import CommentForm from "./CommentForm";
 
 function RenderDish({ dish }) {
   return (
-    <div className="col-12 col-md-5 m-1">
+    <div className="col-12">
       <Card>
         <CardImg width="100%" src={dish.image} value={dish.name} />
         <CardBody>
@@ -28,7 +29,7 @@ function RenderDish({ dish }) {
 function RenderComments({ comments }) {
   if (comments != null) {
     return (
-      <div className="col-12 col-md-5 m-1">
+      <div className="col-12">
         <h4>Comments</h4>
         <ul className="list-unstyled">
           {comments.map((comment) => {
@@ -71,6 +72,7 @@ const DishDetail = (props) => {
           </div>
           <div className="col-12 col-md-5 m-1">
             <RenderComments comments={props.comments} />
+            <CommentForm />
           </div>
         </div>
       </div>
